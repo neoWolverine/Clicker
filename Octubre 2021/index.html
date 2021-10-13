@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous" />
+
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Motos Clickeables</title>
+    <style>
+    .onigiri {
+      font-size: 295px;
+      user-select: none;
+    }
+
+    .onigiri:hover {
+      cursor: pointer;
+      font-size: 300px;
+    }
+
+    .onigiri:active {
+      opacity: 0.5;
+    }
+
+    .boton {
+      font-size: 70px;
+    }
+
+    .incremento {
+      font-size: 20px;
+    }
+
+    .incremento1 {
+      font-size: 10px;
+    }
+
+    #contador {
+      font-size: 50px;
+    }
+  </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="./chems.png" alt="" width="30" height="30"
+            class="d-inline-block align-text-top" />
+          Motos Clickeables
+        </a>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <div class="col animate__animated animate__backInUp">
+          <span class="incremento">🔽</span>
+          <span class="incremento"> Tienda de mejoras: </span>
+
+          <div class="list-group">
+            <button type="button" class="btn btn-primary btn-lg list-group-item
+              d-none boton" id="Bandera" onclick="Picar(0)">
+              🏁<span class="incremento1 text-danger">10 Clicks </span><span
+                class="incremento1 text-success"> 1
+                clicks/s</span>
+            </button>
+            <button type="button" class="btn btn-primary btn-lg list-group-item
+              d-none boton" id="Bandera1" onclick="Picar(1)">
+              🚦<span class="incremento1 text-danger">100 Clicks </span><span
+                class="incremento1 text-success"> 5
+                clicks/s
+              </span>
+            </button>
+            <button type="button" class="btn btn-primary btn-lg list-group-item
+              d-none boton" id="Bandera2" onclick="Picar(2)">
+              ✈<span class="incremento1 text-danger">1000 Clicks </span><span
+                class="incremento1 text-success"> 15
+                clicks/s </span>
+            </button>
+            <button type="button" class="btn btn-primary btn-lg list-group-item
+              d-none boton" id="Bandera3" onclick="Picar(3)">
+              🚀<span class="incremento1 text-danger">10000 Clicks </span><span
+                class="incremento1 text-success"> 30
+                clicks/s </span>
+            </button>
+            <button type="button" class="btn btn-primary btn-lg list-group-item
+              d-none boton" id="Bandera4" onclick="Picar(4)">
+              🌌<span class="incremento1 text-danger">100000 Clicks </span><span
+                class="incremento1 text-success"> 60
+                clicks/s </span>
+            </button>
+          </div>
+        </div>
+
+        <div class="col animate__animated animate__backInUp">
+          <div>
+            <span class="incremento">🔽</span>
+            <span class="incremento" id="Tit1">Mejoras Activas</span>
+            <div>
+              <span class="incremento d-none" id="Char1">🏁</span>
+              <span class="incremento text-success d-none" id="cuenta">0</span>
+              <span class="incremento d-none" id="Char2"> 🚦</span>
+              <span class="incremento text-success d-none" id="cuenta1">0</span>
+              <span class="incremento d-none" id="Char3"> ✈</span>
+              <span class="incremento text-success d-none" id="cuenta2">0</span>
+              <span class="incremento d-none" id="Char4"> 🚀</span>
+              <span class="incremento text-success d-none" id="cuenta3">0</span>
+              <span class="incremento d-none" id="Char5"> 🌌</span>
+              <span class="incremento text-success d-none" id="cuenta4">0</span>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col text-center">
+          <span id="contador"> 0 </span>
+          <br />
+          <span class="incremento text-success" id="average">Clicks/s: </span>
+          <span class="incremento text-success" id="Incremento"> 0 </span>
+          <div class="animate__animated animate__slideInRight">
+            <span class="onigiri" onclick="contar()">🏍</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+    setInterval(Update, 16.6);
+
+    var comida = 0;
+    var Incremento = 0;
+    var cuenta = 0;
+    var cuenta1 = 0;
+    var cuenta2 = 0;
+    var cuenta3 = 0;
+    var cuenta4 = 0;
+
+    function contar() {
+      comida++;
+    }
+
+    function Picar(Boton) {
+      if (Boton === 0) {
+        if (comida >= 10) {
+          comida = comida - 10;
+          Incremento += 1;
+          cuenta++;
+        }
+      }
+      if (Boton === 1) {
+        if (comida >= 100) {
+          comida = comida - 100;
+          Incremento += 5;
+          cuenta1++;
+        }
+      }
+      if (Boton === 2) {
+        if (comida >= 1000) {
+          comida = comida - 1000;
+          Incremento += 15;
+          cuenta2++;
+        }
+      }
+      if (Boton === 3) {
+        if (comida >= 10000) {
+          comida = comida - 10000;
+          Incremento += 30;
+          cuenta3++;
+        }
+      }
+      if (Boton === 4) {
+        if (comida >= 100000) {
+          comida = comida - 100000;
+          Incremento += 60;
+          cuenta4++;
+        }
+      }
+    }
+
+    function Update() {
+      comida += Incremento / 60;
+      if (comida > 10) {
+        document.getElementById("Bandera").classList.remove("d-none");
+      }
+      if (comida > 100) {
+        document.getElementById("Bandera1").classList.remove("d-none");
+      }
+      if (comida > 1000) {
+        document.getElementById("Bandera2").classList.remove("d-none");
+      }
+      if (comida > 10000) {
+        document.getElementById("Bandera3").classList.remove("d-none");
+      }
+      if (comida > 100000) {
+        document.getElementById("Bandera4").classList.remove("d-none");
+      }
+      if (cuenta === 1) {
+        document.getElementById("Char1").classList.remove("d-none");
+
+        document.getElementById("cuenta").classList.remove("d-none");
+      }
+      if (cuenta1 === 1) {
+        document.getElementById("Char2").classList.remove("d-none");
+        document.getElementById("cuenta1").classList.remove("d-none");
+      }
+      if (cuenta2 === 1) {
+        document.getElementById("Char3").classList.remove("d-none");
+        document.getElementById("cuenta2").classList.remove("d-none");
+      }
+      if (cuenta3 === 1) {
+        document.getElementById("Char4").classList.remove("d-none");
+        document.getElementById("cuenta3").classList.remove("d-none");
+      }
+      if (cuenta4 === 1) {
+        document.getElementById("Char5").classList.remove("d-none");
+        document.getElementById("cuenta4").classList.remove("d-none");
+      }
+      document.getElementById("contador").innerHTML = new Intl.NumberFormat(
+        "en"
+      ).format(Math.floor(comida));
+      document.getElementById("Incremento").innerHTML = new Intl.NumberFormat(
+        "en"
+      ).format(Math.floor(Incremento));
+      document.getElementById("cuenta").innerHTML = new Intl.NumberFormat(
+        "en"
+      ).format(Math.floor(cuenta));
+      document.getElementById("cuenta1").innerHTML = new Intl.NumberFormat(
+        "en"
+      ).format(Math.floor(cuenta1));
+      document.getElementById("cuenta2").innerHTML = new Intl.NumberFormat(
+        "en"
+      ).format(Math.floor(cuenta2));
+      document.getElementById("cuenta3").innerHTML = new Intl.NumberFormat(
+        "en"
+      ).format(Math.floor(cuenta3));
+      document.getElementById("cuenta4").innerHTML = new Intl.NumberFormat(
+        "en"
+      ).format(Math.floor(cuenta4));
+    }
+  </script>
+  </body>
+
+</html>
